@@ -20,6 +20,7 @@ const resetCompletedSetsButton = document.getElementById('resetCompletedSets');
 const decrementCurrentSetButton = document.getElementById('decrementCurrentSet');
 const incrementCurrentSetButton = document.getElementById('incrementCurrentSet');
 const resetCurrentSetButton = document.getElementById('resetCurrentSet');
+const currentSetsContainer  = document.getElementById('currentSetsContainer');
 
 function updateTimeDisplay() {
     const formattedMinutes = minutes.toString().padStart(2, '0');
@@ -64,6 +65,7 @@ function startRest() {
     startRestButton.style.display = 'none';
     pauseButton.style.display = 'inline-block';
     startNextSetButton.style.display = 'inline-block';
+    currentSetsContainer.style.display = 'none';
 }
 
 function pauseRest() {
@@ -90,6 +92,7 @@ function startNextSet() {
     pauseButton.style.display = 'none';
     resumeRestButton.style.display = 'none';
     startNextSetButton.style.display = 'none';
+    currentSetsContainer.style.display = 'inline-block';
 }
 
 function decrementCompletedSets() {
@@ -160,4 +163,4 @@ decrementCompletedSetsButton.addEventListener('click', decrementCompletedSets);
 incrementCompletedSetsButton.addEventListener('click', incrementCompletedSets);
 resetCompletedSetsButton.addEventListener('click', resetCompletedSets);
 decrementCurrentSetButton.addEventListener('click', decrementCurrentSet);
-incrementCurrentSetButton.addEventListener
+incrementCurrentSetButton.addEventListener('click', incrementCurrentSet);
