@@ -1,0 +1,88 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #121212;
+    color: #ffffff;
+}
+
+.container {
+    text-align: center;
+    background: #1e1e1e;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+h1, h2 {
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+.stopwatch, .tally {
+    margin-bottom: 20px;
+}
+
+#display, #completedSets, #currentSet {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+button {
+    margin: 5px;
+    padding: 10px 20px;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+}
+
+#startRest {
+    background-color: lightgreen;
+}
+
+#pause {
+    background-color: salmon;
+}
+
+#resumeRest {
+    background-color: lightgreen;
+}
+
+#startNextSet {
+    background-color: black;
+    color: white;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+.small-button {
+    margin: 2px;
+    padding: 5px 10px;
+    font-size: 0.8em;
+}
+
+#decrementCompletedSets, #decrementCurrentSet {
+    background-color: salmon;
+}
+
+#incrementCompletedSets, #incrementCurrentSet {
+    background-color: green;
+}
+
+#resetCompletedSets, #resetCurrentSet {
+    background-color: black;
+    color: white;
+}
