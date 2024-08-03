@@ -7,10 +7,13 @@ let milliseconds = 0, seconds = 0, minutes = 0;
 const display = document.getElementById('display');
 const completedSetsDisplay = document.getElementById('completedSets');
 const currentSetDisplay = document.getElementById('currentSet');
+const startExerciseButton = document.getElementById('startExercise');
+const workoutContainer = document.getElementById('workoutContainer');
 const startRestButton = document.getElementById('startRest');
 const pauseButton = document.getElementById('pause');
 const resumeRestButton = document.getElementById('resumeRest');
 const startNextSetButton = document.getElementById('startNextSet');
+const startOverButton = document.getElementById('startOver');
 const decrementCompletedSetsButton = document.getElementById('decrementCompletedSets');
 const incrementCompletedSetsButton = document.getElementById('incrementCompletedSets');
 const resetCompletedSetsButton = document.getElementById('resetCompletedSets');
@@ -123,17 +126,38 @@ function resetCurrentSet() {
     updateCurrentSetDisplay();
 }
 
+function startExercise() {
+    startExerciseButton.style.display = 'none';
+    workoutContainer.style.display = 'block';
+    startRestButton.style.display = 'inline-block';
+}
+
+function startOver() {
+    stopStopwatch();
+    milliseconds = 0;
+    seconds = 0;
+    minutes = 0;
+    completedSets = 0;
+    currentSet = 1;
+    updateTimeDisplay();
+    updateCompletedSetsDisplay();
+    updateCurrentSetDisplay();
+    startExerciseButton.style.display = 'inline-block';
+    workoutContainer.style.display = 'none';
+    startRestButton.style.display = 'none';
+    pauseButton.style.display = 'none';
+    resumeRestButton.style.display = 'none';
+    startNextSetButton.style.display = 'none';
+}
+
+startExerciseButton.addEventListener('click', startExercise);
 startRestButton.addEventListener('click', startRest);
 pauseButton.addEventListener('click', pauseRest);
 resumeRestButton.addEventListener('click', resumeRest);
 startNextSetButton.addEventListener('click', startNextSet);
+startOverButton.addEventListener('click', startOver);
 decrementCompletedSetsButton.addEventListener('click', decrementCompletedSets);
 incrementCompletedSetsButton.addEventListener('click', incrementCompletedSets);
 resetCompletedSetsButton.addEventListener('click', resetCompletedSets);
 decrementCurrentSetButton.addEventListener('click', decrementCurrentSet);
-incrementCurrentSetButton.addEventListener('click', incrementCurrentSet);
-resetCurrentSetButton.addEventListener('click', resetCurrentSet);
-
-updateTimeDisplay();
-updateCompletedSetsDisplay();
-updateCurrentSetDisplay();
+incrementCurrentSetButton.addEventListener

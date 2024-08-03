@@ -3,32 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stopwatch and Tally Counter</title>
+    <title>Set Tracker</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <h1>Stopwatch and Tally Counter</h1>
-        <div class="stopwatch">
-            <div id="display">00:00.000</div>
-            <button id="startRest">Start Rest</button>
-            <button id="pause" style="display: none;">Pause</button>
-            <button id="resumeRest" style="display: none;">Resume Rest</button>
-            <button id="startNextSet" style="display: none;">Start Next Set</button>
-        </div>
-        <div class="tally">
-            <h2>Completed Sets</h2>
-            <div id="completedSets">0</div>
-            <button class="small-button" id="decrementCompletedSets">-</button>
-            <button class="small-button" id="incrementCompletedSets">+</button>
-            <button class="small-button" id="resetCompletedSets">Reset</button>
-        </div>
-        <div class="tally">
-            <h2>Current Set</h2>
-            <div id="currentSet">1</div>
-            <button class="small-button" id="decrementCurrentSet">-</button>
-            <button class="small-button" id="incrementCurrentSet">+</button>
-            <button class="small-button" id="resetCurrentSet">Reset</button>
+        <h1>Set Tracker</h1>
+        <button id="startExercise">Start Exercise</button>
+        <div id="workoutContainer" style="display: none;">
+            <hr>
+            <div class="stopwatch">
+                <div id="display">00:00.000</div>
+                <button id="startRest" style="display: none;">Start Rest</button>
+                <button id="pause" style="display: none;">Pause</button>
+                <button id="resumeRest" style="display: none;">Resume Rest</button>
+                <button id="startNextSet" style="display: none;">Start Next Set</button>
+            </div>
+            <hr>
+            <div class="tally">
+                <h2>Completed Sets</h2>
+                <div id="completedSets">0</div>
+                <button class="small-button" id="decrementCompletedSets">-</button>
+                <button class="small-button" id="incrementCompletedSets">+</button>
+                <button class="small-button" id="resetCompletedSets">Reset</button>
+            </div>
+            <hr>
+            <div class="tally">
+                <h2>Current Set</h2>
+                <div id="currentSet">1</div>
+                <button class="small-button" id="decrementCurrentSet">-</button>
+                <button class="small-button" id="incrementCurrentSet">+</button>
+                <button class="small-button" id="resetCurrentSet">Reset</button>
+            </div>
+            <hr>
+            <button id="startOver">Start Over</button>
         </div>
     </div>
     <script src="script.js"></script>
