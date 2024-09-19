@@ -41,10 +41,21 @@ function updateTimeDisplay() {
     display.textContent = `${formattedMinutes}:${formattedSeconds}.${formattedMilliseconds}`;
 }
 
+function logError(message) {
+    const errorContainer = document.getElementById('errorContainer');
+    if (errorContainer) {
+        const errorMessage = document.createElement('div');
+        errorMessage.textContent = message;
+        errorContainer.appendChild(errorMessage);
+    }
+}
+
 // Play system beep using AudioContext API
 function playSystemBeep1() {
     if (!enableSoundCheckbox.checked) return;
-    dingSound1.play();
+    dingSound1.play().catch(function(error) {
+        logError('Playback failed in playSystemBeep1: ' + error.message);
+    });
 }
 function playSystemBeep2() {
     if (!enableSoundCheckbox.checked) return;
