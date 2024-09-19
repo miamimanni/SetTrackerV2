@@ -8,9 +8,9 @@ let beepPlayed15 = false;  // Flag to ensure beep is played only once per minute
 let beepPlayed30 = false;  // Flag to ensure beep is played only once per minute
 let beepPlayed45 = false;  // Flag to ensure beep is played only once per minute
 let beepPlayed59 = false;  // Flag to ensure beep is played only once per minute
-const dingSound1 = new Audio('ding.mp3');
-const dingSound2 = new Audio('ding.mp3');
-const dingSound3 = new Audio('ding.mp3');
+let dingSound1;
+let dingSound2;
+let dingSound3;
 
 const display = document.getElementById('display');
 const enableSoundCheckbox = document.getElementById('enableSound'); // New checkbox element
@@ -231,8 +231,17 @@ function startOver() {
     currentSetsContainer.style.display = 'inline-block';
 }
 
+function initializeSounds(){
+    dingSound1 = new Audio('ding.mp3');
+    dingSound2 = new Audio('ding.mp3');
+    dingSound3 = new Audio('ding.mp3');
+}
+
 // Event listeners
-startExerciseButton.addEventListener('click', startExercise);
+startExerciseButton.addEventListener('click', function() {
+    initializeSounds();
+    startExercise();
+});
 startRestButton.addEventListener('click', startRest);
 pauseButton.addEventListener('click', pauseRest);
 resumeRestButton.addEventListener('click', resumeRest);
