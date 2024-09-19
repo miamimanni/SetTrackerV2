@@ -244,8 +244,11 @@ function startOver() {
 
 function initializeSounds(){
     dingSound1 = new Audio('ding.mp3');
+    dingSound1.volume = 0.5;
     dingSound2 = new Audio('ding.mp3');
+    dingSound2.volume = 0.5;
     dingSound3 = new Audio('ding.mp3');
+    dingSound3.volume = 0.5;
 }
 
 // Event listeners
