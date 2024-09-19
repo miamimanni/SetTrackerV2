@@ -92,3 +92,13 @@ button:disabled {
     background-color: rgb(134, 141, 148);
     color: white;
 }
+
+#volumeContainer {
+    margin: 20px 0;
+    color: #ffffff;
+}
+
+#volumeControl {
+    width: 80%;
+    margin-top: 10px;
+}
