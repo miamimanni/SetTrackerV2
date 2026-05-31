@@ -26,16 +26,8 @@ const startContainer = document.getElementById('startContainer');
 const startExerciseButton = document.getElementById('startExercise');
 const workoutContainer = document.getElementById('workoutContainer');
 const startRestButton = document.getElementById('startRest');
-const pauseButton = document.getElementById('pause');
-const resumeRestButton = document.getElementById('resumeRest');
 const startNextSetButton = document.getElementById('startNextSet');
 const startOverButton = document.getElementById('startOver');
-const decrementCompletedSetsButton = document.getElementById('decrementCompletedSets');
-const incrementCompletedSetsButton = document.getElementById('incrementCompletedSets');
-const resetCompletedSetsButton = document.getElementById('resetCompletedSets');
-const decrementCurrentSetButton = document.getElementById('decrementCurrentSet');
-const incrementCurrentSetButton = document.getElementById('incrementCurrentSet');
-const resetCurrentSetButton = document.getElementById('resetCurrentSet');
 const currentSetsContainer  = document.getElementById('currentSetsContainer');
 
 // Function to initialize the audio context and gain node
@@ -170,22 +162,10 @@ function startRest() {
     startStopwatch();
     completedSets++;
     updateCompletedSetsDisplay();
+    display.style.display = 'block';
     startRestButton.style.display = 'none';
-    pauseButton.style.display = 'inline-block';
     startNextSetButton.style.display = 'inline-block';
     currentSetsContainer.style.display = 'none';
-}
-
-function pauseRest() {
-    stopStopwatch();
-    pauseButton.style.display = 'none';
-    resumeRestButton.style.display = 'inline-block';
-}
-
-function resumeRest() {
-    startStopwatch();
-    resumeRestButton.style.display = 'none';
-    pauseButton.style.display = 'inline-block';
 }
 
 function startNextSet() {
@@ -197,52 +177,17 @@ function startNextSet() {
     updateTimeDisplay();
     currentSet++;
     updateCurrentSetDisplay();
+    display.style.display = 'none';
     startRestButton.style.display = 'inline-block';
-    pauseButton.style.display = 'none';
-    resumeRestButton.style.display = 'none';
     startNextSetButton.style.display = 'none';
     currentSetsContainer.style.display = 'inline-block';
-}
-
-// Set controls
-function decrementCompletedSets() {
-    if (completedSets > 0) {
-        completedSets--;
-        updateCompletedSetsDisplay();
-    }
-}
-
-function incrementCompletedSets() {
-    completedSets++;
-    updateCompletedSetsDisplay();
-}
-
-function resetCompletedSets() {
-    completedSets = 0;
-    updateCompletedSetsDisplay();
-}
-
-function decrementCurrentSet() {
-    if (currentSet > 1) {
-        currentSet--;
-        updateCurrentSetDisplay();
-    }
-}
-
-function incrementCurrentSet() {
-    currentSet++;
-    updateCurrentSetDisplay();
-}
-
-function resetCurrentSet() {
-    currentSet = 1;
-    updateCurrentSetDisplay();
 }
 
 // General start/stop
 function startExercise() {
     startContainer.style.display = 'none';
     workoutContainer.style.display = 'block';
+    display.style.display = 'none';
     startRestButton.style.display = 'inline-block';
 
     // Initialize audio context and load sounds
@@ -264,9 +209,8 @@ function startOver() {
     updateCurrentSetDisplay();
     startContainer.style.display = 'inline-block';
     workoutContainer.style.display = 'none';
+    display.style.display = 'none';
     startRestButton.style.display = 'none';
-    pauseButton.style.display = 'none';
-    resumeRestButton.style.display = 'none';
     startNextSetButton.style.display = 'none';
     currentSetsContainer.style.display = 'inline-block';
 
@@ -311,16 +255,8 @@ document.addEventListener('click', function() {
 }, { once: true });
 
 startRestButton.addEventListener('click', startRest);
-pauseButton.addEventListener('click', pauseRest);
-resumeRestButton.addEventListener('click', resumeRest);
 startNextSetButton.addEventListener('click', startNextSet);
 startOverButton.addEventListener('click', startOver);
-decrementCompletedSetsButton.addEventListener('click', decrementCompletedSets);
-incrementCompletedSetsButton.addEventListener('click', incrementCompletedSets);
-resetCompletedSetsButton.addEventListener('click', resetCompletedSets);
-decrementCurrentSetButton.addEventListener('click', decrementCurrentSet);
-incrementCurrentSetButton.addEventListener('click', incrementCurrentSet);
-resetCurrentSetButton.addEventListener('click', resetCurrentSet);
 
 // Volume control event listener (if you have a volume slider)
 if (volumeControl) {
